@@ -22,6 +22,6 @@ Instale front_contacto utilizando npm
   git clone https://github.com/jkmilop/front_contacto.git
   cd front_contacto
   npm i
-  npm run  d
+  npm start
 ```
     
