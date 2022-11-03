@@ -11,6 +11,7 @@ import EditContact from "./EditContact";
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  
   const retrieveContacts = async () => {
     const response = await api.get("/contactos");
     return response.data;
@@ -30,7 +31,7 @@ function App() {
 
   const updateContactHandler = async (contact) => {
     const response = await api.put(`/contactos/${contact.id}`, contact);
-    const { id,nombres, apellidos, correo, telefono, celular, direccion } = response.data;
+    const { id } = response.data;
     setContacts(
       contacts.map((contact) => {
         return contact.id === id ? { ...response.data } : contact;

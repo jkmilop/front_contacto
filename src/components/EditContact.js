@@ -18,8 +18,15 @@ class EditContact extends React.Component {
 
   update = (e) => {
     e.preventDefault();
-    if (this.state.name === "" || this.state.email === "") {
-      alert("ALl the fields are mandatory!");
+    if (
+      this.state.nombres === "" ||
+      this.state.apellidos === "" ||
+      this.state.correo === "" ||
+      this.state.telefono === "" ||
+      this.state.celular === "" ||
+      this.state.direccion === ""
+    ) {
+      alert("Debe llenar todos los campos");
       return;
     }
     this.props.updateContactHandler(this.state);
@@ -29,31 +36,29 @@ class EditContact extends React.Component {
       correo: "",
       telefono: "",
       celular: "",
-      direccion: ""
+      direccion: "",
     });
     this.props.history.push("/");
   };
   render() {
     return (
       <div className="ui main">
-        <h2>Edit Contact</h2>
+        <h2>Editar Contact</h2>
         <form className="ui form" onSubmit={this.update}>
           <div className="field">
-            <label>Nombre</label>
+            <label>Nombre(s)</label>
             <input
               type="text"
               name="nombres"
-              placeholder="nombres"
               value={this.state.nombres}
               onChange={(e) => this.setState({ nombres: e.target.value })}
             />
           </div>
           <div className="field">
-            <label>Apellidos</label>
+            <label>Apellido(s)</label>
             <input
               type="text"
               name="apellidos"
-              placeholder="apellidos"
               value={this.state.apellidos}
               onChange={(e) => this.setState({ apellidos: e.target.value })}
             />
@@ -63,7 +68,6 @@ class EditContact extends React.Component {
             <input
               type="text"
               name="correo"
-              placeholder="correo"
               value={this.state.correo}
               onChange={(e) => this.setState({ correo: e.target.value })}
             />
@@ -73,7 +77,6 @@ class EditContact extends React.Component {
             <input
               type="text"
               name="telefono"
-              placeholder="telefono"
               value={this.state.telefono}
               onChange={(e) => this.setState({ telefono: e.target.value })}
             />
@@ -83,7 +86,6 @@ class EditContact extends React.Component {
             <input
               type="text"
               name="celular"
-              placeholder="celular"
               value={this.state.celular}
               onChange={(e) => this.setState({ celular: e.target.value })}
             />
@@ -93,12 +95,11 @@ class EditContact extends React.Component {
             <input
               type="text"
               name="direccion"
-              placeholder="direccion"
               value={this.state.direccion}
               onChange={(e) => this.setState({ direccion: e.target.value })}
             />
           </div>
-          <button className="ui button blue">Update</button>
+          <button className="ui button blue">Guardar</button>
         </form>
       </div>
     );

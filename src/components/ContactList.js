@@ -5,7 +5,7 @@ import ContactCard from "./ContactCard";
 const ContactList = (props) => {
   console.log(props);
 
-  const deleteConactHandler = (id) => {
+  const deleteContactHandler = (id) => {
     props.getContactId(id);
   };
 
@@ -13,7 +13,7 @@ const ContactList = (props) => {
     return (
       <ContactCard
         contact={contact}
-        clickHander={deleteConactHandler}
+        clickHander={deleteContactHandler}
         key={contact.id}
       />
     );
@@ -21,7 +21,7 @@ const ContactList = (props) => {
   return (
     <div className="main">
       <h2>
-        Contact List
+        Lista de Contactos
         <Link to="/agregar">
           <button className="ui button blue right">Agregar Contacto</button>
         </Link>

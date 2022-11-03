@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 import user from "../images/user.png";
 
 const ContactCard = (props) => {
-  const { id,nombres, apellidos, correo, telefono, celular, direccion } = props.contact;
+  const { id, nombres, apellidos, correo, telefono, celular, direccion } =
+    props.contact;
   return (
     <div className="item">
       <img className="ui avatar image" src={user} alt="user" />
       <div className="content">
         <Link
-          to={{ pathname: `/contactos/${id}`, state: { contact: props.contact } }}
+          to={{
+            pathname: `/contactos/${id}`,
+            state: { contact: props.contact },
+          }}
         >
           <div className="header">{nombres}</div>
           <div className="header">{apellidos}</div>
@@ -17,7 +21,6 @@ const ContactCard = (props) => {
           <div>{telefono}</div>
           <div>{celular}</div>
           <div>{direccion}</div>
-
         </Link>
       </div>
       <i
@@ -25,10 +28,12 @@ const ContactCard = (props) => {
         style={{ color: "red", marginTop: "7px", marginLeft: "10px" }}
         onClick={() => props.clickHander(id)}
       ></i>
-      <Link to={{ pathname: `/`, state: { contact: props.contact } }}>
+      <Link to={{ pathname: `/editar`, state: { contact: props.contact } }}>
         <i
           className="edit alternate outline icon"
           style={{ color: "blue", marginTop: "7px" }}
+          onClick={() => props.clickHander(id)}
+
         ></i>
       </Link>
     </div>
